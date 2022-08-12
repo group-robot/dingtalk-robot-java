@@ -46,6 +46,7 @@ public class DingTalkRobotClient {
         this.secret = secret;
     }
 
+
     /**
      * send message
      *
@@ -58,13 +59,62 @@ public class DingTalkRobotClient {
             throw new DingTalkRobotException("message missing");
         }
         String json = SimpleJsonProxy.json.toJson(message.toMessageMap());
+        return sendMessage(json);
+    }
+
+    /**
+     * send message
+     *
+     * @param json json message
+     * @return response
+     */
+    public DingTalkRobotResponse sendMessage(String json) {
+        if (StrUtil.isBlank(json)) {
+            throw new DingTalkRobotException("message missing");
+        }
         SimpleHttpResponse response = SimpleHttp.HTTP.post(url(), json);
         if (response.isSuccess()) {
             return SimpleJsonProxy.json.fromJson(response.getBodyStr(), DingTalkRobotResponse.class);
         }
         throw new DingTalkRobotException("send message failed");
-
     }
+
+    /**
+     * send message
+     *
+     * @param url     webhook
+     * @param message message
+     * @return response
+     */
+    public DingTalkRobotResponse sendMessage(String url, BaseMessage message) {
+        if (null == message) {
+            throw new DingTalkRobotException("message missing");
+        }
+        String json = SimpleJsonProxy.json.toJson(message.toMessageMap());
+        return sendMessage(url, json);
+    }
+
+    /**
+     * send message
+     *
+     * @param url  webhook
+     * @param json json message
+     * @return response
+     */
+    public DingTalkRobotResponse sendMessage(String url, String json) {
+        if (StrUtil.isBlank(json)) {
+            throw new DingTalkRobotException("message missing");
+        }
+        if (StrUtil.isBlank(url)) {
+            throw new DingTalkRobotException("url missing");
+        }
+        SimpleHttpResponse response = SimpleHttp.HTTP.post(url, json);
+        if (response.isSuccess()) {
+            return SimpleJsonProxy.json.fromJson(response.getBodyStr(), DingTalkRobotResponse.class);
+        }
+        throw new DingTalkRobotException("send message failed");
+    }
+
 
     protected String url() {
         if (StringUtils.isBlank(this.webhook)) {
@@ -90,7 +140,7 @@ public class DingTalkRobotClient {
             Base64.Encoder encoder = Base64.getEncoder();
             return new String(encoder.encode(signData), StandardCharsets.UTF_8);
         } catch (NoSuchAlgorithmException | InvalidKeyException e) {
-            throw new DingTalkRobotException("签名失败", e);
+            throw new DingTalkRobotException("sign error", e);
         }
     }
 
