@@ -46,6 +46,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+            <version>5.8.4</version>
+        </dependency>
+        <dependency>
             <groupId>com.hb0730</groupId>
             <artifactId>https</artifactId>
             <version>4.0.2</version>
