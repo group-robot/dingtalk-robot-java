@@ -36,14 +36,14 @@ public class Link implements Message {
      * 单条信息后面图片的URL
      * <p>是否必填: 是</p>
      */
-    private String picURL;
+    private String picUrl;
 
     @Override
     public Map<String, Object> toMessageMap() {
         Map<String, Object> message = new HashMap<>(3);
         message.put("title", this.title);
         message.put("messageURL", this.messageUrl);
-        message.put("picURL", this.picURL);
+        message.put("picURL", this.picUrl);
         return message;
     }
 }

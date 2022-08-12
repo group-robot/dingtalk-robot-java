@@ -36,7 +36,7 @@ public enum MessageType {
      *
      * @see io.github.group.robot.dingtalk.core.model.FeedCardMessage
      */
-    FEED_CARD("FeedCard"),
+    FEED_CARD("feedCard"),
     ;
     private final String value;
 

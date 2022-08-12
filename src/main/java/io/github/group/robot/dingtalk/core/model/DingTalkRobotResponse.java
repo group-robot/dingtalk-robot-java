@@ -1,6 +1,7 @@
 package io.github.group.robot.dingtalk.core.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
  * @date 2022/8/12
  */
 @Data
+@ToString
 public class DingTalkRobotResponse implements Serializable {
     /**
      * 错误码
