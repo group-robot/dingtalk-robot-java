@@ -1,7 +1,7 @@
 <h1 align="center"><a href="https://github.com/group-robot/java-dingtalk-robot" target="_blank">java-dingtalk-robot</a></h1>
 <p align="center">
-<a href="https://search.maven.org/artifact/io.github.group-robot/java-dingtalk-robot">
-<img alt="Maven Central" src="https://img.shields.io/maven-central/v/io.github.group-robot/java-dingtalk-robot?style=flat-square">
+<a href="https://search.maven.org/artifact/io.github.group-robot/dingtalk-robot-core">
+<img alt="Maven Central" src="https://img.shields.io/maven-central/v/io.github.group-robot/dingtalk-robot-core?style=flat-square">
 </a>
 <a href="https://github.com/group-robot/java-dingtalk-robot/blob/master/LICENSE">
 <img alt="GitHub" src="https://img.shields.io/github/license/group-robot/java-dingtalk-robot?style=flat-square">
